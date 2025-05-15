@@ -1,0 +1,46 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+/* .conteudo-page {
+  width: 90%;
+  margin-top: 30px;
+  margin-left: 250px;
+  padding: 0px;
+
+} */
+.conteudo-page {
+  flex-grow: 1;
+  width: calc(100% - 100px);
+  padding: 16px;
+  transition: width 0.3s ease-in-out;
+}
+
+.container {
+  display: flex;
+  flex: 1;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.menu-hidden {
+  width: 10%;
+  margin-left: 16px;
+  flex-grow: 1;
+
+}
+/* 
+div {
+  display: flex;
+  justify-content: center;
+}
+main{
+  width:100%;
+
+}
+.menu-hidden {
+  margin-left: 16px;
+} */
+
+
+

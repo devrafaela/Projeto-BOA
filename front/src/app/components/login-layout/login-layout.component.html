@@ -1,0 +1,14 @@
+    <section class="form-section">
+        <img src="assets/svg/Tela-Inicial.svg" alt="Tela inicial B.O.A" />
+        <div class="login-form">
+            <h2>{{title}}</h2>
+            <ng-content></ng-content>
+            <div class="btn-wrapper">
+                <button class="btn-voltar" (click)="navigate()" >{{btnSairText}}</button>
+                <button class="btn-login"  (click)="submit()" [disabled]="disableBtn">{{btnLoginText}}</button>
+            </div>
+        </div>
+        <button class="btn btn-info-icon" aria-label="Informações">
+            i
+        </button>
+    </section>

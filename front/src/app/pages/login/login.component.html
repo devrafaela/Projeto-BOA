@@ -1,0 +1,20 @@
+<app-login-layout title="LOGIN" btnLoginText="Entrar" btnSairText="Voltar" (submit)="submit()" (navigate)="navigate()" [disableBtn]="!loginForm.valid">
+    <form [formGroup]="loginForm">
+        <app-default-input
+            inputName="name"
+            type="text"
+x            placeholder="Digite seu nickname"
+            formControlName="name"
+        >
+        </app-default-input>
+        <app-default-input
+            inputName="password"
+            type="password"
+            placeholder="Digite sua senha"
+            formControlName="password"
+        >
+        </app-default-input>
+        <span>Esqueceu a senha?</span>
+        <span>É nova(o) aqui?? <a href="/cadastro"> Crie uma conta!!</a></span>
+    </form>
+</app-login-layout>

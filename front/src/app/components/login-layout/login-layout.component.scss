@@ -1,0 +1,156 @@
+@import "../../../styles/variables.scss";
+
+:host, html, body, main{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+    .form-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+        .login-form {
+            position: absolute;
+            z-index: 1;
+            max-width: 1100px;
+            width: 90%;
+            height: 500px;
+            padding: 2rem;
+            background: #40c0c8;
+            border: 2px solid white;
+            transform: translate(30%, -150%);
+            border-radius: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        
+
+        h2 {
+            font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: 60px;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            gap: 30px;
+
+            button {
+                padding: 0.75rem 1.5rem;
+                border: 3px solid white;
+                border-radius: 0.5rem;
+                color: white;
+                font-size: 1.5rem;
+                height: 50px;
+                width: 250px;
+                cursor: pointer;
+                transition: opacity 0.2s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                &:disabled {
+                    opacity: 0.5;
+                }
+
+                &.btn-login {
+                    border: 1px solid white;
+                    background-color: #32CD32;
+                    color: white;
+                    box-shadow: 0px 8px 12px rgba(148.23004603385925, 64.33935597538948, 255, 0.20000000298023224);
+
+                }
+
+                &.btn-voltar {
+                    border: 1px solid white;
+                    color: white;
+                    background-color: #DC143C;
+                }
+            }
+            .btn {
+                padding: 0.75rem 1.5rem;
+                border: 3px solid white;
+                border-radius: 0.5rem;
+                color: white;
+                font-size: 2rem;
+                height: 50px;
+                width: 290px;
+                cursor: pointer;
+                transition: opacity 0.2s;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                &:hover {
+                  opacity: 0.85;
+                }
+              }
+        }
+        .btn-info-icon {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0;
+            font-weight: bold;
+            font-size: 1.25rem;
+            background-color: rgba(0,0,0,0.5);
+            border: 2px solid #FEC900;;
+            color: #FEC900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            &:hover {
+              background-color: rgba(0,0,0,0.7);
+            }
+          }
+    }
+
+
+@media only screen and (min-width: 600px) {
+  main {
+      .form-section {
+          img{
+            width: 30vh;
+          }
+
+      }
+  }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    main {
+        .main-section {
+            display: flex !important;
+        }
+
+        .form-section {
+            padding: 0 70px;
+        }
+    }
+
+}
+
+

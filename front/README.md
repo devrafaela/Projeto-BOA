@@ -1,59 +1,71 @@
-# Front
+# B.O.A. - Busca Ordenada Animada
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
+Projeto de Software Educativo - B.O.A. - Busca Ordenada Animada
 
-## Development server
+## 🛠️ Tecnologias Utilizadas
 
-To start a local development server, run:
+- [Angular](versão >= 17)
+- [TypeScript]
+- [RxJS]
+- [Angular Material]
 
-```bash
-ng serve
-```
+## 📦 Pré-requisitos
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+-Node.js
+-Angular CLI
 
-## Code scaffolding
+## 🖥️  Como rodar o projeto
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Clone este repositório
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Entre no diretório do projeto
 
 ```bash
-ng generate --help
+cd nome-do-projeto
 ```
 
-## Building
-
-To build the project run:
+Instale as dependências
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Para instalar as dependências adicionais:
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+ngx-toast (para notificações):
 
 ```bash
-ng test
+npm install ngx-toastr --save
 ```
 
-## Running end-to-end tests
+JSON Server (para simulação da API):
 
-For end-to-end (e2e) testing, run:
+Globalmente (opção mais comum):
 
 ```bash
-ng e2e
+npm install -g json-server
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Localmente (no projeto):
 
-## Additional Resources
+```bash
+npm install json-server --save-dev
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Execute o JSON Server apontando para o arquivo db.json:
+
+```bash
+json-server --watch db.json --port 3000
+```
+
+Instale a biblioteca Angular Material:
+
+```bash
+ng add @angular/material
+```
+
+Execute o projeto
+
+```bash
+npm start
+```
