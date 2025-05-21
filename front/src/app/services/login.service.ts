@@ -43,6 +43,14 @@ export class LoginService {
     )
   }
 
+  recuperacao(name: string, password: string){
+    return console.log('Recuperação de senha:', name + password)
+        /*tap((usuario) => {
+          sessionStorage.setItem("auth-token", usuario.token)
+          sessionStorage.setItem("user-name", usuario.name)
+        })*/
+  }
+
   logado(){
     return sessionStorage.getItem('token') ? true : false;
   }

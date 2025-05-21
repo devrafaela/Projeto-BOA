@@ -1,0 +1,86 @@
+
+:host, html, body, main{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
+
+.form-section {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.card-container {
+    position: absolute;
+    z-index: 1;
+    max-width: 910px;
+    width: 100%;
+    height: 550px;
+    padding: 2rem;
+    background: #40c0c8;
+    background-image: linear-gradient(#0C456B, #2A89C8);
+    border: 2px solid white;
+    transform: translate(40%, -140%);
+    border-radius: 7rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h2 {
+    font-size: 80px;
+    color: #F9CC08;
+    margin: 34px 16px 40px 16px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 440px;
+    text-transform: uppercase;
+}
+
+p{
+    color: white;
+    margin-bottom: 24px;
+    text-align: justify;
+}
+
+.btn-info-icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    font-weight: bold;
+    font-size: 1.25rem;
+    background-color: rgba(0,0,0,0.5);
+    border: 2px solid #FEC900;;
+    color: #FEC900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background-color: rgba(0,0,0,0.7);
+    }
+  }
+
+.container-setas {
+    display: flex;
+    justify-content: space-evenly;
+
+    img {
+        width: 50%;
+    }
+}

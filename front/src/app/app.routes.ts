@@ -6,6 +6,8 @@ import { UsuarioNaoAutenticadoGuard } from './services/guards/usuario-nao-autent
 import { HomeComponent } from './pages/home/home.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
+import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component';
+import { InformacaoComponent } from './pages/informacao/informacao.component';
 
 export const routes: Routes = [
 
@@ -26,6 +28,16 @@ export const routes: Routes = [
     {
         path: "cadastro",
         component: CadastroComponent,
+        canActivate: [UsuarioNaoAutenticadoGuard]
+    },
+    {
+        path: "recuperacao",
+        component: RecuperacaoComponent,
+        canActivate: [UsuarioNaoAutenticadoGuard]
+    },
+    {
+        path: "informacao",
+        component: InformacaoComponent,
         canActivate: [UsuarioNaoAutenticadoGuard]
     },
     {

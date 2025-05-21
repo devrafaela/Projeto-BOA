@@ -4,24 +4,29 @@
     color: $text-color;
     font-size: 16px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     label{
         margin-bottom: 10px;
     }
 
     .input-content {
-        width: 100%;
+        width: 450px;
         border-radius: 8px;
-        display: flex;
-        justify-content: center;
+        margin-bottom: 16px;
 
         input {
-            border: 1px solid white;
+            border: 2px solid white;
             background-color:  #A2c8e3;
             padding: 12px 0 12px 20px;
-            width: 50%;
-            height: 60px;
+            width: 440px;
+            height: 70px;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
 
