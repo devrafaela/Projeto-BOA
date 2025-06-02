@@ -1,5 +1,5 @@
 <section class="relative size-full">
-  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class="block w-full h-full object-cover" />
+  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class="w-full h-full object-cover" />
   <div class=" w-[90%] h-[95%] translate-x-[5%] -translate-y-[102%] px-[50px] py-2">
     <div class="flex justify-center m-4">
       <img 
@@ -12,13 +12,13 @@
       <div *ngFor="let nivel of niveis">
         <img [src]="'assets/svg/'+ nivel.imagem + '.svg'" class="w-[360px] h-[550px] my-2 cursor-pointer img-niveis"  alt="{{nivel.nome}}">
         <p class="text-white text-md flex justify-center m-2">{{nivel.status}}</p>
-        <div class="">
+        <div>
           <img *ngIf="nivel.bloqueado" src="assets/svg/cadeado.svg" class="translate-x-[60%] -translate-y-[300%]">
           <img *ngIf="nivel.status === 'Concluido'" src="assets/svg/check.svg" class="translate-x-[220%] -translate-y-[490%]">
         </div>
       </div>   
     </div>
-    <div class="cursor-pointer flex w-full justify-start">
+    <div class="cursor-pointer flex w-full justify-start -translate-x-[5%] -translate-y-[400%]">
       <img 
       src="assets/svg/seta-esquerda.svg" 
       alt="Seta voltar para informação anterior"
