@@ -8,48 +8,51 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { InicioComponent } from './pages/inicio/inicio.component';
 import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component';
 import { InformacaoComponent } from './pages/informacao/informacao.component';
+import { GameComponent } from './pages/game/game.component';
 
 export const routes: Routes = [
+  {
+    path: 'inicio',
+    component: InicioComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
 
-    {
-        path: "inicio",
-        component: InicioComponent,
-        canActivate: [UsuarioNaoAutenticadoGuard]
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
 
-    },
+  {
+    path: 'game',
+    component: GameComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
 
-    {
-        path: "login",
-        component: LoginComponent,
-        canActivate: [UsuarioNaoAutenticadoGuard]
-
-    },
-
-    {
-        path: "cadastro",
-        component: CadastroComponent,
-        canActivate: [UsuarioNaoAutenticadoGuard]
-    },
-    {
-        path: "recuperacao",
-        component: RecuperacaoComponent,
-        canActivate: [UsuarioNaoAutenticadoGuard]
-    },
-    {
-        path: "informacao",
-        component: InformacaoComponent,
-        canActivate: [UsuarioNaoAutenticadoGuard]
-    },
-    {
-        path: "",
-        component: MainLayoutComponent,
-        canActivate: [UsuarioAutenticadoGuard],
-        children: [
-            {
-                path:"home",
-                component: HomeComponent
-            },
-        ]
-    },
-
+  {
+    path: 'cadastro',
+    component: CadastroComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
+  {
+    path: 'recuperacao',
+    component: RecuperacaoComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
+  {
+    path: 'informacao',
+    component: InformacaoComponent,
+    canActivate: [UsuarioNaoAutenticadoGuard],
+  },
+  {
+    path: '',
+    component: MainLayoutComponent,
+    canActivate: [UsuarioAutenticadoGuard],
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent,
+      },
+    ],
+  },
 ];

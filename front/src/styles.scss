@@ -1,24 +1,31 @@
-@import 'ngx-toastr/toastr';
+@import "ngx-toastr/toastr";
 /* You can add global styles to this file, and also import other style files */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .press-start-2p-font {
-    font-family: "Press Start 2P", system-ui;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Press Start 2P", system-ui;
+  font-weight: 400;
+  font-style: normal;
 }
-  
-.jaro-font{
+
+.jaro-font {
   font-family: "Jaro", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;

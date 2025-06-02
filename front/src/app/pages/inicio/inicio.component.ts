@@ -5,21 +5,21 @@ import { Router } from '@angular/router';
   selector: 'app-inicio',
   imports: [],
   templateUrl: './inicio.component.html',
-  styleUrl: './inicio.component.scss'
+  styleUrl: './inicio.component.scss',
+  standalone: true,
 })
 export class InicioComponent {
-  constructor(private router: Router){}
+  constructor(private router: Router) {}
 
-  navigateLogin(){
-    this.router.navigate(["login"])
+  navigateLogin() {
+    this.router.navigate(['login']);
   }
 
-  navigateTutorial(){
-    console.log("Iniciar tutorial...")
+  navigateTutorial() {
+    console.log('Iniciar tutorial...');
   }
 
-  navigateSair(){
-    console.log("Saindo...")
+  navigateSair() {
+    console.log('Saindo...');
   }
-
 }
