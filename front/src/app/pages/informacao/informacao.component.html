@@ -145,10 +145,10 @@
                 src="assets/svg/seta-direita.svg" 
                 alt="Seta ir para próxima parte da informação"
                 (click)="proximaParte()"
-                [class.disabled]="parteAtual === informacoes.length - 1" />
+                [class.disabled]="parteAtual === informacoes - 1" />
         </div>
     </div>
-    <button class="absolute top-4 right-4 w-10 h-10  p-0 font-bold text-[1.25rem] bg-black/50 border-2 border-[#FEC900] text-[#FEC900] flex items-center justify-center cursor-pointer" aria-label="Informações" (click) ="navigateInfo()">
+    <button class="absolute top-4 right-4 w-10 h-10 p-0 flex items-center justify-center cursor-pointer hover:opacity-80" aria-label="Informações" (click) ="navigateInfo()">
         <img src="assets/svg/info.svg" alt="ícone de informação" />
     </button>
 </section>

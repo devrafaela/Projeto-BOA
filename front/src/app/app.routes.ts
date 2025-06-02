@@ -10,7 +10,7 @@ import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component'
 import { InformacaoComponent } from './pages/informacao/informacao.component';
 
 export const routes: Routes = [
-
+    { path: '', redirectTo: 'inicio', pathMatch: 'full' },
     {
         path: "inicio",
         component: InicioComponent,
