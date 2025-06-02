@@ -22,4 +22,13 @@ export class InicioComponent {
     console.log("Saindo...")
   }
 
+  navigateInfo(){
+    const rotaAtual = this.router.url;
+    if(rotaAtual === '/inicio'){
+    this.router.navigate(["informacao"])
+    }else if (rotaAtual === '/informacao'){
+    this.router.navigate(["inicio"])
+    }
+  }
+
 }

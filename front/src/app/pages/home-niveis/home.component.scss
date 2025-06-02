@@ -1,0 +1,12 @@
+:host, html, body {
+  width: 100vh;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card-niveis .img-niveis {
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
