@@ -31,7 +31,7 @@ export class HomeComponent {
       if(i === 0) {
         nivel.bloqueado = false;
         nivel.imagem = 'nivel-1-unlock'
-        nivel.status = StatusNivel.CONCLUIDO;
+        nivel.status = StatusNivel.EM_ANDAMENTO;
       } else {
         if(nivelAnterior.status === StatusNivel.CONCLUIDO) {
           nivel.bloqueado = false;
@@ -54,5 +54,11 @@ export class HomeComponent {
 
   navigateInicio () {
      this.router.navigate(["inicio"])
+  }
+
+  irParaBusca(id: number, bloqueado: boolean) {
+    if(id === 1 && !bloqueado){
+      this.router.navigate(["bubble-nivel-um"]);
+    }
   }
 }

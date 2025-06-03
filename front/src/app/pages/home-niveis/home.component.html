@@ -10,7 +10,7 @@
     </div>
     <div  class="flex justify-center items-center mt-[48px] gap-[70px] press-start-2p-font">
       <div *ngFor="let nivel of niveis">
-        <img [src]="'assets/svg/'+ nivel.imagem + '.svg'" class="w-[360px] h-[550px] my-2 cursor-pointer img-niveis hover:opacity-80"  alt="{{nivel.nome}}">
+        <img [src]="'assets/svg/'+ nivel.imagem + '.svg'" class="w-[360px] h-[550px] my-2 cursor-pointer img-niveis hover:opacity-80" alt="{{nivel.nome}}" (click)="irParaBusca(nivel.id, nivel.bloqueado)">
         <p class="text-white text-md flex justify-center m-2">{{nivel.status}}</p>
         <div>
           <img *ngIf="nivel.bloqueado" src="assets/svg/cadeado.svg" class=" translate-x-[70%] -translate-y-[320%] absolute max-w-[150px] w-full h-auto">
