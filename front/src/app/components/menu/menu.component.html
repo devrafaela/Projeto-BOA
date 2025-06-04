@@ -1,0 +1,17 @@
+@if(menuVisible){
+  <aside class="menu-style" >
+    <ul class="ul-style">
+     <li>
+         <a href="/home" routerLinkActive="active">
+             <mat-icon >home</mat-icon> Dashboard
+         </a>
+     </li>
+     <li>
+         <a (click)="logout()" routerLinkActive="active">
+             <mat-icon >logout</mat-icon> Sair
+         </a>
+     </li>
+    </ul>
+ </aside>
+}
+

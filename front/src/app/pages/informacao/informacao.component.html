@@ -1,0 +1,154 @@
+   <section class="relative size-full">
+    <img src="assets/png/bg-inicio.png" alt="Tela inicial B.O.A" class="size-full"/>
+    <div class="tema-card-container relative z-1 max-w-[1120px] w-full h-[650px] bg-[#40c0c8] bg-gradient-to-b from-[#0C456B] to-[#2A89C8] flex flex-col items-center justify-center border-2 border-white transform translate-x-[30%] translate-y-[-120%] rounded-[7rem]">
+        <img src="assets/svg/titulo_informacoes.svg" alt="Título informações" class="flex w-[900px] h-[100px] m-4" />
+        <div>
+            <div class="mx-16 mt-4" *ngIf="parteAtual === 0">
+                <p class="text-white text-2xl mb-4 text-justify">O B.O.A (Busca e Ordenação Animada) é uma aplicação educacional interativa voltada para o ensino de algoritmos de ordenação, como Bubble Sort, Selection Sort e Insertion Sort. Desenvolvido como parte de um projeto acadêmico de software, o B.O.A foi criado para ajudar estudantes do ensino médio e universitários a visualizar, compreender e praticar algoritmos de forma lúdica, utilizando elementos de gamificação e animações intuitivas.</p>
+                <p class="text-white text-2xl mb-4 text-justify">O projeto nasceu a partir de uma observação comum no ensino de lógica e algoritmos: muitos alunos enfrentam grande dificuldade em entender o funcionamento interno das estruturas e processos computacionais apenas por texto ou código. O B.O.A transforma esses conceitos em experiências visuais e práticas, promovendo um aprendizado mais leve, eficiente e motivador. </p>
+            </div>
+            <div class="mx-16 mt-4" *ngIf="parteAtual === 1">
+             <p class="text-white text-2xl">Objetivos do B.O.A:</p>
+             <ul class="text-white text-2xl ml-12 my-4 list-disc">
+                <li class="mb-2 text-justify"> Facilitar o aprendizado de algoritmos por meio de tutoriais explicativos, animações e desafios interativos; </li>
+                <li class="mb-2 text-justify">Tornar o estudo de ordenação mais visual, sequencial e compreensível, mesmo para iniciantes;</li>
+                <li class="mb-2 text-justify">Promover a autonomia do estudante por meio de um sistema de progressão, feedback e fases desbloqueáveis;</li>
+                <li class="mb-2 text-justify">Oferecer uma alternativa gratuita, didática e acessível ao ensino tradicional de programação.</li>
+             </ul> 
+            </div>
+            <div class="mx-16 my-2" *ngIf="parteAtual === 2">
+                <p class="text-white text-2xl m-2 text-justify">O <span class="font-bold">B.O.A</span> foi criado por uma equipe diversificada de estudantes do  <span class="font-bold">Bacharelado em Ciência da Computação</span> da <span class="font-bold">Universidade Estadual do Sudoeste da Bahia</span>, campus de <span class="font-bold">Vitória da Conquista</span>, empregando <span class="font-bold">métodos ágeis (Scrum)</span> como metodologia. Sendo eles:</p>
+                <div class="flex justify-center">
+                    <div class="flex-col w-max pr-8">
+                        <div class="flex-col justify-start">
+                            <div class="flex items-center mb-2 mt-2"> 
+                                <img src="assets/svg/personagem-1.png" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-md">Gidevaldo Novais dos Santos</p>
+                                    <p class="text-sm">(Product Owner)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-2.svg" alt="personage m cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Álisson Natan dos Anjos Pinheiro</p>
+                                    <p>(Dev Backend)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-3.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Camille Rodrigues Costa</p>
+                                    <p>(Designer UX/UI + Dev Frontend)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-4.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Cleiton Galvão Santana</p>
+                                    <p>(Dev Backend)</p>     
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col w-max">
+                        <div class="flex-col justify-start">
+                            <div class="flex items-center my-2">
+                                <img src="assets/svg/personagem-5.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Larissa Ribeiro Firminio</p>
+                                    <p>(Dev Backend)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2 ">
+                                <img src="assets/svg/personagem-6.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Rafaela Pereira Santos</p>
+                                    <p>(Scrum Master + Designer UX/UI)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-7.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Samanta Souza Barros (Dev Frontend)</p>
+                                    <p>(Dev Frontend)</p>     
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-8.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p>Sanley Pires Ferreira</p>
+                                    <p>(Analista de Qualidade - QA)</p>     
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+            <div class="mx-16 my-2" *ngIf="parteAtual === 3">
+                <p class="text-white text-2xl m-2 text-justify">O <span class="font-bold">B.O.A</span> foi criado por uma equipe diversificada de estudantes do  <span class="font-bold">Bacharelado em Ciência da Computação</span> da <span class="font-bold">Universidade Estadual do Sudoeste da Bahia</span>, campus de <span class="font-bold">Vitória da Conquista</span>, empregando <span class="font-bold">métodos ágeis (Scrum)</span> como metodologia. Sendo eles:</p>
+                <div class="flex justify-center">
+                    <div class="flex-col w-max pr-8">
+                        <div class="flex-col justify-start">
+                            <div class="flex items-center mb-2 mt-2"> 
+                                <img src="assets/svg/personagem-1.png" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Banco de Dados:</span>PostgreSQL</p>   
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-2.svg" alt="personage m cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Frontend:</span> Angular + TypeScript</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-3.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Backend:</span> Java (API REST)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-col w-max">
+                        <div class="flex-col justify-start">
+                            <div class="flex items-center my-2">
+                                <img src="assets/svg/personagem-5.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Design:</span>Figma</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2 ">
+                                <img src="assets/svg/personagem-6.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Controle de Versão:</span> GitHub</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center mb-2">
+                                <img src="assets/svg/personagem-7.svg" alt="personagem cogumelo vermelho animado" class="size-[60px]">
+                                <div class="flex-col text-white ml-2">
+                                    <p class="text-lg"><span class="font-bold">Gerenciamento do Projeto:</span> Jira</p>
+                                </div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex w-full justify-between px-8 items-end cursor-pointer">
+            <img 
+                src="assets/svg/seta-esquerda.svg" 
+                alt="Seta voltar para informação anterior"
+                (click)="parteAnterior()"
+                [class.disabled]="parteAtual === 0" />
+            <img 
+                src="assets/svg/seta-direita.svg" 
+                alt="Seta ir para próxima parte da informação"
+                (click)="proximaParte()"
+                [class.disabled]="parteAtual === informacoes - 1" />
+        </div>
+    </div>
+    <button class="absolute top-4 right-4 w-10 h-10 p-0 flex items-center justify-center cursor-pointer hover:opacity-80" aria-label="Informações" (click) ="navigateInfo()">
+        <img src="assets/svg/info.svg" alt="ícone de informação" />
+    </button>
+</section>
