@@ -20,7 +20,7 @@ public class ServicoDetalhesUsuario implements UserDetailsService {
 
     public UserDetails carregarPorApelido(String apelido) throws UsernameNotFoundException {
         Usuario usuario = usuarioRepository.findByNickname(apelido)
-                .orElseThrow(() -> new UsernameNotFoundException("Usuario não encontrado"));
+                .orElseThrow(() -> new UsernameNotFoundException("Usuario nao encontrado"));
 
         return new User(
                 usuario.getNickname(),

@@ -41,7 +41,7 @@ public class ConfiguracaoSeguranca {
                 .exceptionHandling(e -> e
                         .authenticationEntryPoint((req, res, ex) -> {
                             res.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                            res.getWriter().write("Token ausente ou inv\u00e1lido.");
+                            res.getWriter().write("Token ausente ou invalido.");
                         })
                         .accessDeniedHandler((req, res, ex) -> {
                             res.setStatus(HttpServletResponse.SC_FORBIDDEN);
