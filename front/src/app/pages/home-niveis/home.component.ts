@@ -31,7 +31,7 @@ export class HomeComponent {
       if(i === 0) {
         nivel.bloqueado = false;
         nivel.imagem = 'nivel-1-unlock'
-        nivel.status = StatusNivel.EM_ANDAMENTO;
+        nivel.status = StatusNivel.CONCLUIDO;
       } else {
         if(nivelAnterior.status === StatusNivel.CONCLUIDO) {
           nivel.bloqueado = false;
