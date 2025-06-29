@@ -1,0 +1,9 @@
+com\softwareeducativo\boa\security\JwtUtil.class
+com\softwareeducativo\boa\repository\UsuarioRepository.class
+com\softwareeducativo\boa\controller\LoginController.class
+com\softwareeducativo\boa\security\JwtFilter.class
+com\softwareeducativo\boa\controller\UsuarioController.class
+com\softwareeducativo\boa\security\ServicoDetalhesUsuario.class
+com\softwareeducativo\boa\config\ConfiguracaoSeguranca.class
+com\softwareeducativo\boa\model\Usuario.class
+com\softwareeducativo\boa\BoaApplication.class
