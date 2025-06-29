@@ -1,0 +1,16 @@
+    <section class="form-section">
+        <img src="assets/png/bg-ini.png" alt="Tela inicial B.O.A" />
+        <div class="login-form">
+            <h2 class="press-start-2p-font">{{title}}</h2>
+            <ng-content></ng-content>
+            <div class="btn-wrapper">
+                <button class="btn-voltar jaro-font" (click)="navigate()" >{{btnSairText}}</button>
+                <button class="btn-login jaro-font"  (click)="submit()" [disabled]="disableBtn">{{btnLoginText}}</button>
+            </div>
+        </div>
+        <a href="/informacao">
+            <button class="btn btn-info-icon" aria-label="Informações">
+                <img src="assets/svg/info.svg" alt="ícone de informação" class="img-btn-info" />
+            </button>
+        </a>
+    </section>

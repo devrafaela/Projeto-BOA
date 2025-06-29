@@ -1,0 +1,65 @@
+  <div class="game-container">
+    <h1 class="title">Bubble Sort</h1>
+  
+    <!-- Área principal do jogo -->
+    <div>
+      <!-- Exibição do array -->
+      <div class="array-section">
+        <div class="array-wrapper">
+          <span class="array-label">Array Inicial</span>
+          <div class="array">
+            <div class="array-box" *ngFor="let value of array; let i = index" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
+              <span class="value">{{ value }}</span>
+              <span class="position">Posição {{ i }}</span> <!-- ⬅️ posição aparece aqui -->
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Comparação atual -->
+      <div class="comparison-section">
+        <p class="array-label">Comparando:</p>
+        <div class="comparison">
+          <div class="compare-box">{{ array[currentPair[0]] }}</div>
+          <div class="compare-icon">⇄</div>
+          <div class="compare-box">{{ array[currentPair[1]] }}</div>
+        </div>
+      </div>
+  
+      <!-- Pergunta e resposta -->
+      <div class="question-section" *ngIf="!isFinished">
+        <p class="question-index">
+          Qual número deve aparecer na posição {{ currentIndex }} neste passo?
+        </p>
+        <div class="input-wrapper">
+          <input type="number" [(ngModel)]="userAnswer" class="answer-box" />
+          <button class="confirm-button" (click)="checkAnswer()">Confirmar</button>
+        </div>
+      </div>
+  
+      <!-- Botões de dica e reinício -->
+      <div class="action-buttons">
+        <button class="restart-button" (click)="restart()">Reiniciar</button>
+        <button class="hint-button" (click)="showHint()">Veja dica</button>
+      </div>
+  
+      <!-- Feedback visual -->
+      <div *ngIf="feedback" class="feedback-box" [ngClass]="feedback">
+        {{ feedback === 'correct' ? '✅ Correto!' : '❌ Errado!' }}
+      </div>
+  
+      <!-- Mensagem de vitória -->
+      <div *ngIf="isFinished" class="win-message">
+        🎉 Parabéns! Você ordenou o array corretamente!
+        <br />
+        <button class="restart-button" (click)="restart()">Reiniciar</button>
+      </div>
+    </div>
+    <div class="cursor-pointer flex w-full justify-start mt-[32px]">
+      <img 
+      src="assets/svg/seta-esquerda.svg" 
+      alt="Seta voltar para informação anterior"
+      (click)="navigateHome()"
+       />
+    </div>
+  </div>

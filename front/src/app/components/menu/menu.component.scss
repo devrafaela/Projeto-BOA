@@ -1,0 +1,36 @@
+.menu-style{
+  width: 200px;
+  background-color: #F1F3F6;
+  height: calc(100vh - 80px);
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 40px;
+  left: 0;
+
+
+  ul{
+    margin: 16px 8px 8px 8px;
+    list-style: none;
+
+    mat-icon{
+        margin-right: 16px;
+    }
+  }
+
+  li{
+    display: flex;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+    display:flex;
+    align-items: center;
+  }
+}
+
+
