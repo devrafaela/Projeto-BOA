@@ -1,5 +1,5 @@
 <section class="relative size-full">
-  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class=""/>
+  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class=" inset-0 w-full h-full object-cover z-0"/>
   <div class=" w-[90%] h-[95%] translate-x-[5%] -translate-y-[102%] px-[50px] py-2">
     <div class="flex justify-center m-4">
       <img 
@@ -8,7 +8,7 @@
         alt="Cenário de fundo com nuvens no céu arbustos verde e céu estilo jogo" 
       />
     </div>
-    <div  class="flex justify-center items-center mt-[48px] gap-[70px] press-start-2p-font">
+    <div  class="flex justify-center items-center mt-[48px] gap-[70px] press-start-2p-font md:column">
       <div *ngFor="let nivel of niveis">
         <img [src]="'assets/svg/'+ nivel.imagem + '.svg'" class="w-[360px] h-[550px] my-2 cursor-pointer img-niveis hover:opacity-80" alt="{{nivel.nome}}" (click)="irParaBusca(nivel.id, nivel.bloqueado)">
         <p class="text-white text-md flex justify-center m-2">{{nivel.status}}</p>

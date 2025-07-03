@@ -1,8 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GameStateService } from '../../services/gameState/game-state.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DicasBubbleComponent } from '../../components/dicas-bubble/dicas-bubble.component';
+import { EnsinaBubbleComponent } from '../../components/ensina-bubble/ensina-bubble.component';
 
 @Component({
   selector: 'app-play',
@@ -73,10 +76,30 @@ export class BubbleComponent {
     this.updateCurrentPair();
   }
 
+ 
+  readonly dialog = inject(MatDialog);
   showHint() {
-    alert(
-      'Compare os dois números. Se o da esquerda for maior, ele troca com o da direita.'
-    );
+    const dialogRef = this.dialog.open(EnsinaBubbleComponent, {
+      width: '800px',
+      panelClass: 'custom-dialog-container',
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+       console.log(`Dialog result: ${result}`);
+   });
+  }
+
+  showExplication() {
+    const dialogRef = this.dialog.open(DicasBubbleComponent, {
+      width: '800px',
+      panelClass: 'custom-dialog-container',
+      disableClose: true,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+       console.log(`Dialog result: ${result}`);
+   });
   }
 
   updateCurrentPair() {
