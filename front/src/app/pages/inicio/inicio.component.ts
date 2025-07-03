@@ -15,7 +15,7 @@ export class InicioComponent {
   }
 
   navigateTutorial(){
-    console.log("Iniciar tutorial...")
+    this.router.navigate(["tutorial"])
   }
 
   navigateSair(){

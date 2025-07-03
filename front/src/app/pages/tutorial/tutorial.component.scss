@@ -1,0 +1,14 @@
+img.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+.text-link {
+    text-decoration: none;
+    color: white;
+
+    &:hover{
+        opacity: 0.85;
+        font-size:40px;
+    }
+}

@@ -8,6 +8,7 @@ import { InicioComponent } from './pages/inicio/inicio.component';
 import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component';
 import { InformacaoComponent } from './pages/informacao/informacao.component';
 import { BubbleComponent } from './pages/bubble/bubble.component';
+import { TutorialComponent } from './pages/tutorial/tutorial.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'inicio', pathMatch: 'full' },
@@ -33,6 +34,10 @@ export const routes: Routes = [
     {
         path: "informacao",
         component: InformacaoComponent,
+    },
+     {
+        path: "tutorial",
+        component: TutorialComponent,
     },
     {
         path: "home",
