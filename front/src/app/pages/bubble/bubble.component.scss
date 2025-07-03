@@ -263,3 +263,12 @@
       transform: scale(1);
     }
   }
+
+  ::ng-deep .custom-dialog-container .mat-dialog-container {
+    background: linear-gradient(to bottom, #159FA7, #40C0C8);
+    color: white;
+    padding: 2rem;
+    border: 2px solid white;
+    border-radius: 3rem;
+    max-width: 90%;
+}

@@ -79,7 +79,7 @@ export class BubbleComponent {
  
   readonly dialog = inject(MatDialog);
   showHint() {
-    const dialogRef = this.dialog.open(EnsinaBubbleComponent, {
+    const dialogRef = this.dialog.open(DicasBubbleComponent, {
       width: '800px',
       panelClass: 'custom-dialog-container',
       disableClose: true,
@@ -91,10 +91,9 @@ export class BubbleComponent {
   }
 
   showExplication() {
-    const dialogRef = this.dialog.open(DicasBubbleComponent, {
-      width: '800px',
+    const dialogRef = this.dialog.open(EnsinaBubbleComponent, {
+      width: '900px',
       panelClass: 'custom-dialog-container',
-      disableClose: true,
     });
 
     dialogRef.afterClosed().subscribe(result => {

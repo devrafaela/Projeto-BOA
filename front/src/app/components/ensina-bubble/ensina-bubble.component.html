@@ -1,16 +1,27 @@
-<h2 mat-dialog-title class="text-4xl font-bold text-center jaro-font"> Bubble Sort </h2>
+<h1 class="p-4 text-[#B84764] text-2xl font-bold text-center press-start-2p-font"> Explicação sobre o algoritmo</h1>
 
 <mat-dialog-content class="mat-typography text-white">
-  <p class="text-lg mt-4"><b>🧠 Dica </b></p>
-  <p class="mb-4">
-    Compare os dois números. Se o da esquerda for maior, ele troca com o da direita.
+  <p class="text-xl mt-4 mb-2"><b>🧠 O que é <span class="text-[#B84764]">Bubble Sort?</span></b></p>
+  <p class="mb-4 text-lg text-justify">
+    É um <b><span class="text-[#B84764] text-bold">algoritmo de ordenação simples que funciona comparando pares de elementos vizinhos e os trocando de lugar se estiverem na ordem errada. </span></b> A cada "passagem", o maior número "sobe" para o final do array, como uma bolha na água — por isso o nome bubble.
   </p>
+
+  <p class="text-xl mt-4 mb-2"><b>🧠 Como funciona?</b></p>
+  <ol class="list-decimal pl-5 text-lg">
+    <li>Compara o primeiro e o segundo número.</li>
+    <li>Se o primeiro for maior, troca os dois de posição.</li>
+    <li>Passa para o próximo par (segundo e terceiro) e repete.</li>
+    <li>Isso continua até o fim da lista.</li>
+    <li>Depois, repete tudo ignorando o último elemento (que já está no lugar certo).</li>
+    <li>O processo continua até nenhuma troca ser necessária.</li>
+  </ol>
 </mat-dialog-content>
 
 <mat-dialog-actions align="center" class="mt-6">
-   
     <button
-        class="px-6 py-3 rounded-md text-white text-[1.5rem] sm:h-[30px] sm:w-[150px] md:h-[50px] md:w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 border-2 border-white bg-[#32CD32] jaro-font"
+        class="px-6 py-3 rounded-md text-white text-[1.5rem] sm:h-[30px] sm:w-[150px] md:h-[50px] md:w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 border-2 border-white bg-[#B84764] jaro-font"
+        (click)="navigate()">Voltar para Níveis</button>
+    <button
+        class="px-6 py-3 rounded-md text-white text-[1.5rem] sm:h-[30px] sm:w-[150px] md:h-[50px] md:w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 border-2 border-white bg-[#B84764] jaro-font"
         (click)="continuar()">Continuar</button>
 </mat-dialog-actions>
-
