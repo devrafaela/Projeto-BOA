@@ -1,8 +1,8 @@
    <section class="relative size-full">
     <img src="assets/png/bg-inicio.png" alt="Tela inicial B.O.A" class="size-full"/>
-    <div class="tema-card-container relative z-1 max-w-[1120px] w-full h-[650px] bg-[#40c0c8] bg-gradient-to-b from-[#0C456B] to-[#2A89C8] flex flex-col items-center justify-center border-2 border-white transform translate-x-[30%] translate-y-[-120%] rounded-[7rem]">
-        <img src="assets/svg/titulo_informacoes.svg" alt="Título informações" class="flex w-[900px] h-[100px] m-4" />
-        <div>
+    <div class="tema-card-container relative z-1 max-w-[1000px] w-full h-[650px] bg-gradient-to-b from-[#0C456B] to-[#2A89C8] border-2 border-white transform translate-x-[40%] translate-y-[-120%] rounded-[7rem] flex flex-col justify-between items-center p-8">
+        <img src="assets/svg/titulo_informacoes.svg" alt="Título informações" class="absolute top-6 left-1/2 -translate-x-1/2 w-[900px] h-[100px] z-10 py-2" />
+        <div class="pt-16 w-full overflow-y-auto flex flex-1 items-center">
             <div class="mx-16 mt-4" *ngIf="parteAtual === 0">
                 <p class="text-white text-2xl mb-4 text-justify">O B.O.A (Busca e Ordenação Animada) é uma aplicação educacional interativa voltada para o ensino de algoritmos de ordenação, como Bubble Sort, Selection Sort e Insertion Sort. Desenvolvido como parte de um projeto acadêmico de software, o B.O.A foi criado para ajudar estudantes do ensino médio e universitários a visualizar, compreender e praticar algoritmos de forma lúdica, utilizando elementos de gamificação e animações intuitivas.</p>
                 <p class="text-white text-2xl mb-4 text-justify">O projeto nasceu a partir de uma observação comum no ensino de lógica e algoritmos: muitos alunos enfrentam grande dificuldade em entender o funcionamento interno das estruturas e processos computacionais apenas por texto ou código. O B.O.A transforma esses conceitos em experiências visuais e práticas, promovendo um aprendizado mais leve, eficiente e motivador. </p>
@@ -135,7 +135,7 @@
                 </div>
             </div>
         </div>
-        <div class="flex w-full justify-between px-8 items-end cursor-pointer">
+        <div  class="w-full flex justify-between px-8 items-center cursor-pointer">
             <img 
                 src="assets/svg/seta-esquerda.svg" 
                 alt="Seta voltar para informação anterior"

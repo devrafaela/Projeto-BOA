@@ -7,12 +7,15 @@
       <div class="array-section">
         <div class="array-wrapper">
           <span class="array-label">Array Inicial</span>
-          <div class="array">
-            <div class="array-box" *ngFor="let value of array; let i = index" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
-              <span class="value">{{ value }}</span>
-              <span class="position">Posição {{ i }}</span> <!-- ⬅️ posição aparece aqui -->
-            </div>
-          </div>
+          <div class="array" >
+            <div *ngFor="let value of array; let i = index" class="flex flex-col items-center">
+             <div class="array-box" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
+               <span class="value">{{ value }}</span>
+             </div>
+             <span class="position mt-1 tamanho">Posição</span>
+             <span class="position mt-1 tamanho">{{ i }}</span>
+           </div>
+         </div>
         </div>
       </div>
   
