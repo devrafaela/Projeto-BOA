@@ -1,10 +1,10 @@
-<app-login-layout title="Recuperação" btnLoginText="OK" btnSairText="Voltar" (submit)="submit()" (navigate)="navigate()" [disableBtn]="!recuperacaoForm.valid">
-    <form [formGroup]="recuperacaoForm">
+<app-login-layout title="Recuperação" btnLoginText="OK" btnSairText="Voltar" (submit)="recuperarSenha()" (navigate)="navigate()" [disableBtn]="!recuperacaoForm.valid">
+    <form [formGroup]="recuperacaoForm" >
         <app-default-input
         inputName="name"
         type="text"
         placeholder="Digite seu nickname"
-        formControlName="name"
+        formControlName="nickname"
         >
         </app-default-input>
      
@@ -12,14 +12,14 @@
             inputName="password"
             type="password"
             placeholder="Digite sua nova senha"
-            formControlName="password"
+            formControlName="novaSenha"
         >
         </app-default-input>
         <app-default-input
             inputName="passwordConfirm"
             type="password"
             placeholder="Digite sua senha de novo"
-            formControlName="passwordConfirm"
+            formControlName="confirmaNovaSenha"
          >
          </app-default-input>
     </form>

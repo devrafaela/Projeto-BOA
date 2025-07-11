@@ -6,11 +6,12 @@ import { ToastrService } from 'ngx-toastr';
 import { DefaultInputComponent } from '../../components/default-input/default-input.component';
 import { LoginLayoutComponent } from '../../components/login-layout/login-layout.component';
 import { LoginService } from '../../services/login.service';
+import { catchError, switchMap, throwError } from 'rxjs';
 
 interface RecuperacaoForm {
-  name: FormControl,
-  password: FormControl,
-  passwordConfirm: FormControl
+  nickname: FormControl,
+  novaSenha: FormControl,
+  confirmaNovaSenha: FormControl
 }
 
 @Component({
@@ -25,23 +26,39 @@ export class RecuperacaoComponent {
 
   constructor(private router: Router, private loginService: LoginService, private toastService: ToastrService){
     this.recuperacaoForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      nickname: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      novaSenha: new FormControl('', [Validators.required, Validators.minLength(4)]),
+      confirmaNovaSenha: new FormControl('', [Validators.required, Validators.minLength(4)]),
     })
   }
 
-  submit(){
-    this.loginService.cadastro(this.recuperacaoForm.value.name, this.recuperacaoForm.value.password).subscribe({
-    next: () => {this.toastService.success("Recuperação realizado com sucesso!"), this.router.navigate(["/login"])},
-      error: () => this.toastService.error("Erro ao tentar recuperar senha do usuário! Tente novamente.")
-   
+   recuperarSenha(): void {
+    if (this.recuperacaoForm.invalid) return;
 
+    const nickname = this.recuperacaoForm.value.nickname;
+    const novaSenha = this.recuperacaoForm.value.novaSenha;
+    const confirmaNovaSenha = this.recuperacaoForm.value.confirmaNovaSenha;
 
-    })
+    if (novaSenha !== confirmaNovaSenha) {
+      this.toastService.error('As senhas não coincidem!')
+      return;
+    }
+
+    this.loginService.buscarPorNickname(nickname).pipe(
+      switchMap(usuario => {
+        return this.loginService.recuperacao(usuario.id, novaSenha);
+      }),
+      catchError(err => {
+        this.toastService.error('Erro ao recuperar senha:' + (err.error.erro || 'Tente Novamente!'))
+        return throwError(() => err);
+      })
+    ).subscribe(() => {
+      this.toastService.success('Senha atualizada com sucesso!');
+      this.router.navigate(["/login"]);
+    });
   }
 
-  navigate(){
-    this.router.navigate(["/login"])
+  navigate() {
+    this.router.navigate(['login']);
   }
 }

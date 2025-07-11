@@ -9,19 +9,23 @@ import { RecuperacaoComponent } from './pages/recuperacao/recuperacao.component'
 import { InformacaoComponent } from './pages/informacao/informacao.component';
 import { BubbleComponent } from './pages/bubble/bubble.component';
 import { TutorialComponent } from './pages/tutorial/tutorial.component';
+import { BoaComponent } from './pages/boa/boa.component';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+    { path: '', redirectTo: 'boa', pathMatch: 'full' },
     {
-        path: "inicio",
-        component: InicioComponent,
-
+        path: "boa",
+        component: BoaComponent,
     },
 
     {
+        path: "inicio",
+        component: InicioComponent,
+    },
+
+    {   
         path: "login",
         component: LoginComponent,
-
     },
     {
         path: "cadastro",

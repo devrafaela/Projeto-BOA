@@ -1,11 +1,12 @@
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 type InputTypes = "text" | "email" | "password"
 
 @Component({
   selector: 'app-default-input',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, MatTooltipModule],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

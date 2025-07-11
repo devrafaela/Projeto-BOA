@@ -19,7 +19,7 @@ export class InicioComponent {
   }
 
   navigateSair(){
-    console.log("Saindo...")
+     this.router.navigate(["boa"])
   }
 
   navigateInfo(){

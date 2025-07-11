@@ -1,31 +1,58 @@
-<section class="relative size-full">
-  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class=" inset-0 w-full h-full object-cover z-0"/>
-  <div class=" w-[90%] h-[95%] translate-x-[5%] -translate-y-[102%] px-[50px] py-2">
+<section class="relative w-full h-full">
+  <img src="assets/svg/Tela_níveis_fundo.svg" alt="Cenário de fundo azul escuro" class=" inset-0 w-full h-full object-cover z-0" />
+  
+  <div class="relative w-[90%] h-[95%] translate-x-[5%] -translate-y-[102%] px-4 sm:px-6 md:px-[50px] py-2 z-10">
+    
+    <!-- Título -->
     <div class="flex justify-center m-4">
       <img 
         src="assets/svg/titulo-niveis.svg" 
-        class="w-[500px]" 
+        class="w-64 sm:w-96 md:w-[500px]" 
         alt="Cenário de fundo com nuvens no céu arbustos verde e céu estilo jogo" 
       />
     </div>
-    <div  class="flex justify-center items-center mt-[48px] gap-[70px] press-start-2p-font md:column">
-      <div *ngFor="let nivel of niveis">
-        <img [src]="'assets/svg/'+ nivel.imagem + '.svg'" class="w-[360px] h-[550px] my-2 cursor-pointer img-niveis hover:opacity-80" alt="{{nivel.nome}}" (click)="irParaBusca(nivel.id, nivel.bloqueado)">
-        <p class="text-white text-md flex justify-center m-2">{{nivel.status}}</p>
+
+    <!-- Cards dos níveis -->
+    <div class="flex flex-col md:flex-row justify-center items-center mt-12 gap-6 md:gap-[70px] press-start-2p-font">
+      <div *ngFor="let nivel of niveis" class="relative">
+        <img 
+          [src]="'assets/svg/' + nivel.imagem + '.svg'" 
+          class="w-64 sm:w-72 md:w-[360px] h-[480px] sm:h-[520px] md:h-[550px] my-2 cursor-pointer hover:opacity-80 transition-opacity duration-300" 
+          alt="{{nivel.nome}}" 
+          (click)="irParaBusca(nivel.id, nivel.bloqueado)" 
+        />
+        
+        <!-- Status -->
+        <p class="text-white text-sm sm:text-md flex justify-center m-2">
+          {{nivel.status}}
+        </p>
+
+        <!-- Ícones bloqueado e concluído -->
         <div>
-          <img *ngIf="nivel.bloqueado" src="assets/svg/cadeado.svg" class=" translate-x-[70%] -translate-y-[320%] absolute max-w-[150px] w-full h-auto">
-          <img *ngIf="nivel.status === 'Concluido'" src="assets/svg/check.svg" class="translate-x-[260%] -translate-y-[580%] absolute max-w-[110px] w-full h-auto">
+          <img 
+            *ngIf="nivel.bloqueado" 
+            src="assets/svg/cadeado.svg" 
+            class="absolute top-8 right-6 sm:right-10 max-w-[100px] w-16 sm:w-24 h-auto" 
+          />
+          <img 
+            *ngIf="nivel.status === 'Concluido'" 
+            src="assets/svg/check.svg" 
+            class="absolute top-4 right-4 max-w-[80px] md:max-w-[110px] w-10 h-10" 
+          />
         </div>
       </div>   
     </div>
-    <div class="cursor-pointer flex w-full justify-start">
+
+    <!-- Botão de voltar -->
+    <div class="cursor-pointer flex w-full justify-start mt-6">
       <img 
-      src="assets/svg/seta-esquerda.svg" 
-      alt="Seta voltar para informação anterior"
-      (click)="navigateInicio()"
-       />
+        src="assets/svg/seta-esquerda.svg" 
+        alt="Seta voltar para informação anterior" 
+        (click)="navigateInicio()" 
+        class="w-10 sm:w-12 md:w-14 hover:scale-105 transition-transform"
+      />
     </div>
+    
   </div>
-  
 </section>
 
