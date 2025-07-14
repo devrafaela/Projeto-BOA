@@ -9,43 +9,20 @@
     overflow: hidden;
   }
   
-  .title {
-    width: 100%;
-    position: relative;
-    font-size: 75px;
-    font-family: "Press Start 2P";
-    color: #e4ab0d;
-    text-align: center;
-    height: 100px;
+  .text-shadow-title {
     text-shadow: 4px 0 0 #865837, 0 4px 0 #865837, -4px 0 0 #865837,
       0 -4px 0 #865837;
   }
-  
-  .array-section {
-    margin-bottom: 1rem;
-  }
-  
-  .array-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
-    padding-top: 50px;
-  }
-  
-  .array-label {
-    width: 146px;
-    position: relative;
-    font-size: 20px;
-    line-height: 120%;
-    font-family: "Protest Strike";
-    color: #fff;
-    text-align: center;
-    display: inline-block;
+
+  .text-shadow {
     text-shadow: 2px 0 0 #865837, 0 2px 0 #865837, -2px 0 0 #865837,
       0 -2px 0 #865837;
   }
-  
+  .steps-box {
+    border: 6px solid #865837;
+    box-shadow: 1px 2px 0 #000;
+  }
+    
   button {
     transition: transform 0.2s ease;
   }
@@ -53,7 +30,7 @@
   button:hover {
     transform: scale(1.05);
   }
-  
+
   .welcome-button,
   .start-button {
     font-size: 1rem;
@@ -64,63 +41,21 @@
     cursor: pointer;
     margin: 0.5rem;
   }
-  
-  .array {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    margin-bottom: 4px;
-  }
-  
+
   .array-box {
-    background-color: #797979;
     border: 6px solid #464646;
-    border-radius: 12px;
-    text-align: center;
-    color: white;
     font-family: "Protest Strike", sans-serif;
     font-size: 1.5rem;
     box-shadow: 1px 2px 0 #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 60px;
-    height: 65px;
   }
-  
-  .array-box .position {
-    font-size: 0.75rem;
-    color: #eee;
-    margin-top: 0.25rem;
-    font-weight: normal;
-    text-align: center;
-  }
-  
+ 
   .array-box.comparing {
     background-color: #f29f05;
     border-color: #865837;
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
     animation: blink-border 1s infinite;
   }
-  
-  .comparison-section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1rem;
-    padding: 20px 0 50px;
-  }
-  
-  .comparison {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  
+    
   .compare-box {
     background-color: #f29f05;
     border: 6px solid #865837;
@@ -135,46 +70,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  } 
+
+  .bold {
+    font-weight: bold;
   }
-  
-  .compare-icon {
-    font-size: 2rem;
-    color: #914f00;
-  }
-  
-  .question-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  
-  .question-index {
-    white-space: normal;
-    word-wrap: break-word;
-    text-align: center;
-    max-width: 30%;
-    margin: 0 auto;
-    font-size: 30px;
-    line-height: 120%;
-    font-family: "Protest Strike";
-    text-shadow: 2px 0 0 #865837, 0 2px 0 #865837, -2px 0 0 #865837,
-      0 -2px 0 #865837;
-  }
-  
+
   .answer-box {
     background-color: #f29f05;
     border: 6px solid #865837;
-    border-radius: 12px;
-    color: white;
     font-family: "Protest Strike", sans-serif;
     font-size: 1.5rem;
     box-shadow: 1px 2px 0 #000;
-    margin: 2rem;
-    width: 60px;
-    height: 65px;
-    text-align: center;
-    appearance: textfield;
   }
   
   .answer-box::-webkit-inner-spin-button,
@@ -189,7 +96,6 @@
     background-color: #f29f05;
     border: 6px solid #865837;
     border-radius: 12px;
-    color: white;
     font-family: "Protest Strike", sans-serif;
     font-size: 1.5rem;
     box-shadow: 1px 2px 0 #000;
@@ -198,34 +104,15 @@
   
   .hint-button,
   .restart-button {
-    padding: 0.5rem 3rem;
+    padding: 0.3rem 2rem;
     background-color: #f29f05;
     border: 6px solid #865837;
     border-radius: 12px;
-    color: white;
     font-family: "Protest Strike", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     box-shadow: 1px 2px 0 #000;
     cursor: pointer;
-  }
-  
-  .action-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 1rem;
-  }
-  
-  .feedback-box {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
-    min-height: 60px;
-    display: inline-block;
-    animation: fade-in 0.3s ease-out;
-    transition: all 0.3s ease-in-out;
+    width: 200px;
   }
   
   .win-message {
@@ -243,9 +130,6 @@
     margin-right: auto;
   }
 
-  .tamanho {
-    font-size: 10px;
-  }
   
   @keyframes blink-border {
     0%,

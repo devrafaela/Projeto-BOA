@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { GameStateService } from '../../services/gameState/game-state.service';
@@ -6,13 +6,16 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DicasBubbleComponent } from '../../components/dicas-bubble/dicas-bubble.component';
 import { EnsinaBubbleComponent } from '../../components/ensina-bubble/ensina-bubble.component';
+import { ModalOrdenacaoConcluidaComponent } from '../../components/modal-ordenacao-concluida/modal-ordenacao-concluida.component';
+import { ToastrService } from 'ngx-toastr';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-play',
   standalone: true,
   templateUrl: './bubble.component.html',
   styleUrls: ['./bubble.component.scss'],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, MatTooltipModule],
 })
 export class BubbleComponent {
   userAnswer: number | null = null;
@@ -21,10 +24,20 @@ export class BubbleComponent {
   isFinished: boolean = false;
   currentPair: [number, number] = [0, 1];
   step: number = 1;
-  maxSteps: number = 10;
+  errorMessage: string = '';
+  quantidadeBox = [0,0,0,0,0];
 
-  constructor(public gameState: GameStateService, private router: Router) {}
+  constructor(public gameState: GameStateService, private router: Router, private toastr: ToastrService) {}
+  get maxSteps () {
+    return this.gameState.calculateMaxBubbleSortSteps(this.gameState.getArray().length);
+  }
 
+  get currentStep () {
+    return this.gameState.getCurrentStep();
+  }
+  get atualSteps() {
+  return this.gameState.getTotalSteps();
+}
   get array() {
     return this.gameState.getArray();
   }
@@ -32,8 +45,18 @@ export class BubbleComponent {
   get currentIndex() {
     return this.gameState.getCurrentIndex();
   }
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.start(); // inicia automaticamente ao carregar
+  }*/
+
+  iniciarGame () {
+     this.start();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['isFinished'] && changes['isFinished'].currentValue === true) {
+      this.showOrdenacaoConcluida();
+    }
   }
 
   start() {
@@ -50,13 +73,26 @@ export class BubbleComponent {
     if (this.userAnswer === null || this.isFinished) return;
 
     const result = this.gameState.checkAnswer(this.userAnswer);
-    this.feedback = result.correct ? 'correct' : 'wrong';
+    if (result === null) {
+      const msg = this.gameState.getErrorMessage();
+      this.toastr.error(msg, 'Entrada inválida');
+      return;
+    }
+    if (!result.correct) {
+      this.feedback = 'wrong';
+      this.toastr.error(result.errorMessage!, 'Resposta incorreta');
+      return;
+    }
+
+    //this.feedback = result.correct ? 'correct' : 'wrong';
+    this.feedback = 'correct';
 
     if (result.correct) {
-      this.step++;
       if (this.gameState.isSorted()) {
         this.isFinished = true;
+        this.showOrdenacaoConcluida();
       }
+      this.step++;
     }
 
     setTimeout(() => {
@@ -72,6 +108,7 @@ export class BubbleComponent {
     this.isFinished = false;
     this.feedback = null;
     this.userAnswer = null;
+    this.gameState.restartCurrentStep();
     this.gameState.startGame();
     this.updateCurrentPair();
   }
@@ -90,7 +127,7 @@ export class BubbleComponent {
    });
   }
 
-  showExplication() {
+  showExplication () {
     const dialogRef = this.dialog.open(EnsinaBubbleComponent, {
       width: '900px',
       panelClass: 'custom-dialog-container',
@@ -101,7 +138,18 @@ export class BubbleComponent {
    });
   }
 
-  updateCurrentPair() {
+  showOrdenacaoConcluida () {
+    const dialogRef = this.dialog.open(ModalOrdenacaoConcluidaComponent, {
+      width: '900px',
+      panelClass: 'custom-dialog-container',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+       console.log(`Dialog result: ${result}`);
+   });
+  }
+
+  updateCurrentPair () {
     this.currentPair = [
       this.gameState.getCurrentIndex(),
       this.gameState.getCurrentIndex() + 1,
@@ -109,6 +157,7 @@ export class BubbleComponent {
   }
 
   navigateHome () {
-    this.router.navigate(["home"])
- }
+    this.router.navigate(["home"]);
+    this.gameState.restartCurrentStep();
+  }
 }

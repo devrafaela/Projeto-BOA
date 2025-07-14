@@ -49,7 +49,6 @@ export class LoginService {
   }
 
   recuperacao(id: number, novaSenha: string): Observable<any> {
-    console.log("recuperacao", id, novaSenha)
     return this.httpClient.put(`${this.apiUrl}/usuarios/recuperar-senha/${id}`, { senha: novaSenha });
   }
 

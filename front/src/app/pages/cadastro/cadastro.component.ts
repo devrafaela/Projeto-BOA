@@ -39,7 +39,6 @@ export class CadastroComponent {
         this.router.navigate(["/login"]);
       },
       error: (erro) => {
-        console.log("Erro", erro);
         let mensagem = "Erro ao cadastrar o usuário. Tente novamente!"
         if (erro.status === 409) {
           mensagem: "Já existe um usuário cadastrado com esse nickname.";
