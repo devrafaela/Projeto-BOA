@@ -15,7 +15,7 @@
         <p class="text-shadow pr-4 mb-2">Array Inicial</p>     
         <div *ngIf="started" class="flex justify-center gap-2 sm:gap-5 mb-1" >
           <div *ngFor="let value of array; let i = index" class="flex flex-col items-center">
-            <div class="array-box bg-[#797979] rounded-[12px] w-[60px] h-[65px] flex justify-center items-center" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
+            <div class="array-box bg-[#797979] rounded-[12px] w-[60px] h-[65px] flex justify-center items-center">
                 <span class="bold">{{ value }}</span>
             </div>
             <span class="mt-1 text-[10px] text-shadow">Posição</span>

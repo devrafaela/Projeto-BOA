@@ -129,7 +129,7 @@ export class BubbleComponent {
 
   showExplication () {
     const dialogRef = this.dialog.open(EnsinaBubbleComponent, {
-      width: '900px',
+      width: '800px',
       panelClass: 'custom-dialog-container',
     });
 
@@ -140,8 +140,15 @@ export class BubbleComponent {
 
   showOrdenacaoConcluida () {
     const dialogRef = this.dialog.open(ModalOrdenacaoConcluidaComponent, {
-      width: '900px',
-      panelClass: 'custom-dialog-container',
+      height: '700px',
+      width: '1000px',
+      maxHeight: '90vh',
+      maxWidth: '90vw',
+      panelClass: 'custom-dialog-rounded',
+      data: {
+        arrayOrdenado: this.gameState.getArray(),
+        totalPassos: this.gameState.getCurrentStep(),
+    }
     });
 
     dialogRef.afterClosed().subscribe(result => {

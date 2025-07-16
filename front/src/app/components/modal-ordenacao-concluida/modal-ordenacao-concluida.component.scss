@@ -3,3 +3,23 @@
       0 -2px 0 #865837;
 }
 
+.custom-dialog-rounded .mat-dialog-container {
+  border-radius: 16px; /* ou o valor desejado */
+}
+
+/* Para navegadores WebKit (Chrome, Edge, Safari) */
+.ocultar-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.ocultar-scroll {
+  scrollbar-width: none;
+}
+
+.array-box {
+    border: 6px solid #f29f05;
+    font-family: "Protest Strike", sans-serif;
+    font-size: 1.4rem;
+    box-shadow: 1px 2px 0 #000;
+}

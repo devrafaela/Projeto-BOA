@@ -1,14 +1,30 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, tap } from 'rxjs';
+import { Nivel } from '../../pages/home-niveis/enum/nivel.enum';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GameStateService {
+  apiUrl: string = "http://localhost:8080";
+  constructor (private router: Router, private httpClient: HttpClient) {}
+  
   array: number[] = [];
   currentIndex: number = 0;
   totalSteps: number = 0;
   currentStep: number = 1;
   errorMessage: string = '';
+
+  getFases (): Observable<Nivel> {
+    console.log("Entrou em getFases");
+    return this.httpClient.get<Nivel>(`${this.apiUrl}/fases`).pipe(
+      tap((nivel) => {
+        console.log("Níveis", nivel);
+      })
+    );
+  }
 
   getArray() {
     return this.array;

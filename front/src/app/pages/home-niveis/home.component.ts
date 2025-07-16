@@ -3,6 +3,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { StatusNivel } from './enum/statusNivel.enum';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { GameStateService } from '../../services/gameState/game-state.service';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
-  constructor (private router: Router) {}
+  constructor (private router: Router, private gameState: GameStateService) {}
 
   niveis = [
     { id: 1, nome: 'Nível 1', status: StatusNivel.NAO_INICIADO, imagem: '', bloqueado: false },
@@ -21,6 +22,7 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.atualizarNiveis();
+    this.gameState.getFases();
   }
 
   atualizarNiveis(){

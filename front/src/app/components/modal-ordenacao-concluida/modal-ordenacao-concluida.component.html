@@ -1,21 +1,29 @@
-<div class="flex justify-center size-full bg-[#b84764] w-[900px]">
-  <div class="bg-[#230542] w-[90%] h-[90%] flex justify-center items-center">
-    <h1 class="text-shadow-title mx-2 mb-2 mt-4 text-4xl relative press-start-2p-font text-white text-center text-shadow ">Ordenação Concluida com sucesso!</h1>
-    <!--<mat-dialog-content class="mat-typography text-white flex flex-row">
-      <p class="text-white text-lg py-4 text-justify">Ordenação Final da Lista:</p>
-      <p class="text-white text-lg py-4 text-justify">Você completou a ordenação com sucesso em {{steps}} passos.</p>
-      <p class="text-white text-lg pb-4">No Bubble Sort, cada passo representa uma comparação entre dois elementos consecutivos da lista. Mesmo quando não há troca, o algoritmo ainda precisa verificar todos os pares até garantir que tudo está no lugar certo.</p>
-      <p class="text-white text-xl pb-2"><b>Cada comparação ajuda a "empurrar" o maior número da vez para o final — como uma bolha subindo.</p>
-      <p class="text-white text-xl pb-2"><b>Por isso, usamos {{steps}} passos para mostrar todo o processo de forma didática e completa, reforçando o raciocínio do algoritmo.</p>
+<div class="flex items-center justify-center size-full bg-[#b84764] rounded-[1rem] overflow-auto ocultar-scroll">
+  <div class="bg-[#230542] w-[90%] h-[90%]  flex-row justify-center items-center rounded-[4rem] p-6 overflow-auto ocultar-scroll">
+    <h1 class="text-shadow-title mx-4 mb-2 mt-4 text-lg sm:text-4xl relative press-start-2p-font text-white text-center text-shadow ">Ordenação Concluida com sucesso!</h1>
+    <mat-dialog-content class="mat-typography text-white">
+      <div class="gap-2 flex flex-col md:flex-row items-center gap-4">
+        <p class="text-white text-lg py-4 text-justify px-2"><b>Ordenação Final da Lista:</b></p>
+        <div class="flex gap-2">
+          <div *ngFor="let value of data.arrayOrdenado; let i = index" class="flex-row items-center">
+              <div class="array-box rounded-[8px] w-[40px] h-[45px] sm:w-[50px] sm:h-[55px] flex justify-center items-center" >
+                  <span class="bold text-white text-shadow">{{ value }}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <p class="text-white text-lg py-4 text-justify">Você completou a ordenação com sucesso em <b class="text-[#B84764]">{{data.totalPassos }} passos.</b></p>
+      <p class="text-white text-lg pb-4">No Bubble Sort, cada passo representa uma <b class="text-[#B84764]">comparação entre dois elementos consecutivos da lista</b>. Mesmo quando não há troca, o algoritmo ainda precisa verificar todos os pares até garantir que tudo está no lugar certo.</p>
+      <p class="text-white text-xl pb-2">Cada comparação ajuda a <b class="text-[#B84764]">"empurrar"</b> o maior número da vez para o final — como uma bolha subindo.</p>
+      <p class="text-white text-xl pb-2">Por isso, usamos  <b class="text-[#B84764]">{{data.totalPassos }} passos</b> para mostrar todo o processo de forma didática e completa, reforçando o raciocínio do algoritmo.</p>
     </mat-dialog-content>
-    <mat-dialog-actions align="center" class="mt-6 flex flex-col md:flex-row">
-    <button
-        class="px-6 py-3 rounded-md text-white text-[1.5rem] h-[50px] w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 border-2 border-white bg-[#B84764] jaro-font"
-        (click)="navigate()">Reiniciar</button>
-    <button
-        class="px-6 py-3 rounded-md text-white text-[1.5rem] h-[50px] w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 border-2 border-white bg-[#B84764] jaro-font"
+    <mat-dialog-actions align="center" class="mt-6 flex flex-col md:flex-row gap-4">
+      <button
+        class="px-6 py-3 rounded-md text-white text-[1.5rem] h-[50px] w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 hover:opacity-80 border-4 border-[#B84764] bg-transparent jaro-font"
+        (click)="reiniciar()">Reiniciar</button>
+      <button
+        class="px-6 py-3 rounded-md text-white text-[1.5rem] h-[50px] w-[250px] cursor-pointer transition-opacity duration-200 flex items-center justify-center disabled:opacity-50 hover:opacity-80 border-4 border-[#B84764] bg-transparent jaro-font"
         (click)="continuar()">Próximo</button>
-    </mat-dialog-actions>-->
+    </mat-dialog-actions>
   </div>
-
 </div>
