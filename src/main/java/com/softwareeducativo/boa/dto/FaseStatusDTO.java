@@ -47,4 +47,5 @@ public class FaseStatusDTO {
     public void setBloqueado(boolean bloqueado) {
         this.bloqueado = bloqueado;
     }
+
 }

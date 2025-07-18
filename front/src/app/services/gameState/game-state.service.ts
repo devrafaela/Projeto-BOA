@@ -17,15 +17,6 @@ export class GameStateService {
   currentStep: number = 1;
   errorMessage: string = '';
 
-  getFases (): Observable<Nivel> {
-    console.log("Entrou em getFases");
-    return this.httpClient.get<Nivel>(`${this.apiUrl}/fases`).pipe(
-      tap((nivel) => {
-        console.log("Níveis", nivel);
-      })
-    );
-  }
-
   getArray() {
     return this.array;
   }

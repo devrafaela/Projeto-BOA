@@ -67,38 +67,49 @@ public class FaseController {
 
     @GetMapping("/status")
     public ResponseEntity<List<FaseStatusDTO>> listarStatusFases(HttpServletRequest request) {
-        String token = request.getHeader("Authorization").substring(7);
-        String nickname = jwtUtil.getNickname(token);
-        Usuario usuario = usuarioRepository.findByNickname(nickname)
-                .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
+        try {
+            String token = request.getHeader("Authorization").substring(7);
+            String nickname = jwtUtil.getNickname(token);
+            Usuario usuario = usuarioRepository.findByNickname(nickname)
+                    .orElseThrow(() -> new RuntimeException("Usuario nao encontrado"));
 
-        List<Fase> todasFases = faseRepository.findAll();
-        List<Progresso> progressoUsuario = progressoRepository.findByUsuario(usuario);
+            List<Fase> todasFases = faseRepository.findAll();
+            List<Progresso> progressoUsuario = progressoRepository.findByUsuario(usuario);
 
-        Map<Long, String> statusPorFaseId = progressoUsuario.stream()
-                .collect(Collectors.toMap(p -> p.getFase().getId(), Progresso::getStatus));
+            Map<Long, String> statusPorFaseId = progressoUsuario.stream()
+                    .collect(Collectors.toMap(
+                            p -> p.getFase().getId(),
+                            Progresso::getStatus,
+                            (status1, status2) -> status2 // mantém o último status encontrado
+                    ));
 
-        List<FaseStatusDTO> resultado = new ArrayList<>();
+            List<FaseStatusDTO> resultado = new ArrayList<>();
 
-        for (int i = 0; i < todasFases.size(); i++) {
-            Fase fase = todasFases.get(i);
-            String status = statusPorFaseId.get(fase.getId());
+            for (int i = 0; i < todasFases.size(); i++) {
+                Fase fase = todasFases.get(i);
+                String status = statusPorFaseId.get(fase.getId());
+                if (status == null) status = "Não Iniciado";
 
-            boolean bloqueado = false;
-            if (i > 0) {
-                Long faseAnteriorId = todasFases.get(i - 1).getId();
-                String statusAnterior = statusPorFaseId.get(faseAnteriorId);
-                bloqueado = !"Concluido".equals(statusAnterior);
+                boolean bloqueado = false;
+                if (i > 0) {
+                    Long faseAnteriorId = todasFases.get(i - 1).getId();
+                    String statusAnterior = statusPorFaseId.get(faseAnteriorId);
+                    if (statusAnterior == null) statusAnterior = "Não Iniciado";
+                    bloqueado = !"Concluido".equals(statusAnterior);
+                }
+
+                resultado.add(new FaseStatusDTO(
+                        fase.getId(),
+                        fase.getNome(),
+                        status,
+                        bloqueado
+                ));
             }
 
-            resultado.add(new FaseStatusDTO(
-                    fase.getId(),
-                    fase.getNome(),
-                    status,
-                    bloqueado
-            ));
+            return ResponseEntity.ok(resultado);
+        } catch (Exception e) {
+            e.printStackTrace(); // Mostra o erro no console
+            throw e;
         }
-
-        return ResponseEntity.ok(resultado);
     }
 }

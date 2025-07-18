@@ -9,6 +9,7 @@ import { EnsinaBubbleComponent } from '../../components/ensina-bubble/ensina-bub
 import { ModalOrdenacaoConcluidaComponent } from '../../components/modal-ordenacao-concluida/modal-ordenacao-concluida.component';
 import { ToastrService } from 'ngx-toastr';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { ProgressoService } from '../../services/progresso/progresso.service';
 
 @Component({
   selector: 'app-play',
@@ -27,7 +28,7 @@ export class BubbleComponent {
   errorMessage: string = '';
   quantidadeBox = [0,0,0,0,0];
 
-  constructor(public gameState: GameStateService, private router: Router, private toastr: ToastrService) {}
+  constructor(public gameState: GameStateService, private router: Router, private toastr: ToastrService, private progressoService: ProgressoService) {}
   get maxSteps () {
     return this.gameState.calculateMaxBubbleSortSteps(this.gameState.getArray().length);
   }
@@ -111,6 +112,7 @@ export class BubbleComponent {
     this.gameState.restartCurrentStep();
     this.gameState.startGame();
     this.updateCurrentPair();
+    //this.progressoService.iniciarFase(this.faseId).subscribe();
   }
 
  
@@ -165,6 +167,6 @@ export class BubbleComponent {
 
   navigateHome () {
     this.router.navigate(["home"]);
-    this.gameState.restartCurrentStep();
+    console.log(sessionStorage.getItem('token'));
   }
 }

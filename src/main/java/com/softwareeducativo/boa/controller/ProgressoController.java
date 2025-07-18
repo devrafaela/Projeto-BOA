@@ -1,5 +1,6 @@
 package com.softwareeducativo.boa.controller;
 
+import com.softwareeducativo.boa.dto.ProgressoDTO;
 import com.softwareeducativo.boa.model.Fase;
 import com.softwareeducativo.boa.model.Progresso;
 import com.softwareeducativo.boa.model.Usuario;
@@ -39,10 +40,24 @@ public class ProgressoController {
                 .orElseThrow(() -> new RuntimeException("Usuario não encontrado"));
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<?> criarProgresso(@RequestBody Progresso progresso, HttpServletRequest request) {
         Usuario usuario = getUsuarioAutenticado(request);
         progresso.setUsuario(usuario);
+        return ResponseEntity.ok(progressoRepository.save(progresso));
+    }*/
+
+    @PostMapping
+    public ResponseEntity<?> criarProgresso(@RequestBody ProgressoDTO progressoDTO, HttpServletRequest request) {
+        Usuario usuario = getUsuarioAutenticado(request);
+        Fase fase = faseRepository.findById(progressoDTO.getFaseId())
+                .orElseThrow(() -> new RuntimeException("Fase não encontrada"));
+
+        Progresso progresso = new Progresso();
+        progresso.setUsuario(usuario);
+        progresso.setFase(fase);
+        progresso.setStatus(progressoDTO.getStatus());
+
         return ResponseEntity.ok(progressoRepository.save(progresso));
     }
 

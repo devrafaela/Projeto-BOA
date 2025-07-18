@@ -1,5 +1,5 @@
 export enum StatusNivel {
-    NAO_INICIADO = 'Nao_Iniciado',
-    EM_ANDAMENTO = 'Em_andamento',
-    CONCLUIDO =  'Concluido'
+    NAO_INICIADO = 'Não Iniciado',
+    EM_ANDAMENTO = 'Em andamento',
+    CONCLUIDO =  'Concluído'
 }
