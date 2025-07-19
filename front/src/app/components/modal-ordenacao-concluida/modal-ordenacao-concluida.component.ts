@@ -5,6 +5,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GameStateService } from '../../services/gameState/game-state.service';
+import { ProgressoService } from '../../services/progresso/progresso.service';
 
 @Component({
   selector: 'app-modal-ordenacao-concluida',
@@ -19,16 +20,17 @@ export class ModalOrdenacaoConcluidaComponent {
     private router: Router,
     private gameState: GameStateService,
     private dialogRef: MatDialogRef<ModalOrdenacaoConcluidaComponent>,
+    private progressoService: ProgressoService,
     @Inject(MAT_DIALOG_DATA) public data: { arrayOrdenado: number[]; totalPassos: number }
   ) {}
 
 
 
-  continuar() {
-    this.dialogRef.close(false);
-    console.log("Ir para o próximo Nível!")
+  continuar () {
+    this.dialogRef.close();
+    this.router.navigate(['home']);
   }
-
+  
   reiniciar() {
     this.dialogRef.close();
     // Reinicia o jogo e navega

@@ -16,6 +16,7 @@ export class GameStateService {
   totalSteps: number = 0;
   currentStep: number = 1;
   errorMessage: string = '';
+  faseAtual: any = null; 
 
   getArray() {
     return this.array;
@@ -34,6 +35,13 @@ export class GameStateService {
 
   getErrorMessage(): string {
     return this.errorMessage;
+  }
+  setFaseAtual(fase: any) {
+    this.faseAtual = fase;
+  }
+
+  getFaseAtual(): any {
+    return this.faseAtual;
   }
 
   startGame () {

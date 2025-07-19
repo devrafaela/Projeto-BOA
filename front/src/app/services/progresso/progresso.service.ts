@@ -19,7 +19,14 @@ export class ProgressoService {
   }
 
   finalizarFase(faseId: number) {
-    return this.httpClient.post(this.apiUrl + '/progresso/finalizar', { id: faseId });
+    return this.httpClient.put(this.apiUrl + `/progresso/${faseId}`, { id: faseId });
   }
+
+  atualizarProgresso(progressoId: number, status: string) {
+  return this.httpClient.put(
+    this.apiUrl + `/progresso/${progressoId}`,
+    { status: status }
+  );
+}
 
 }

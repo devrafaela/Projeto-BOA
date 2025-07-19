@@ -92,6 +92,7 @@ export class HomeComponent {
 
   irParaBusca(nivel: any) {
     if (nivel.bloqueado !== true) {
+       this.gameState.setFaseAtual(nivel);
       this.progressoService.iniciarFase(nivel).subscribe(() => {
         if (nivel.id === 3) this.router.navigate(['bubble-nivel-um']);
         // Adapte para outros níveis
