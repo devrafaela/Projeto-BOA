@@ -15,11 +15,11 @@ export class InicioComponent {
   }
 
   navigateTutorial(){
-    console.log("Iniciar tutorial...")
+    this.router.navigate(["tutorial"])
   }
 
   navigateSair(){
-    console.log("Saindo...")
+     this.router.navigate(["boa"])
   }
 
   navigateInfo(){

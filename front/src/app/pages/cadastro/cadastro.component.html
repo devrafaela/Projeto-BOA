@@ -1,26 +1,22 @@
 <app-login-layout title="CADASTRO" btnLoginText="Criar" btnSairText="Voltar" (submit)="submit()" (navigate)="navigate()" [disableBtn]="!cadastroForm.valid">
-    <form [formGroup]="cadastroForm">
+    <form [formGroup]="cadastroForm" class="flex">
         <app-default-input
-        inputName="name"
+        inputName="nickname"
         type="text"
         placeholder="Digite seu nickname"
-        formControlName="name"
-        >
-        </app-default-input>
-     
+        formControlName="nickname"
+        />
         <app-default-input
             inputName="password"
             type="password"
             placeholder="Digite sua senha"
             formControlName="password"
-        >
-        </app-default-input>
+        />
         <app-default-input
             inputName="passwordConfirm"
             type="password"
             placeholder="Digite sua senha de novo"
             formControlName="passwordConfirm"
-         >
-         </app-default-input>
+        />
     </form>
 </app-login-layout>

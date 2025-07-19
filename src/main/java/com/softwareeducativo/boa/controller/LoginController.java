@@ -31,7 +31,7 @@ public class LoginController {
 
         Optional<Usuario> usuarioOpt = usuarioRepository.findByNickname(nickname);
         if (usuarioOpt.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usu\u00e1rio n\u00e3o encontrado");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario nao encontrado");
         }
 
         Usuario usuario = usuarioOpt.get();

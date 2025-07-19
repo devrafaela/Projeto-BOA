@@ -4,51 +4,52 @@ import { LoginResponse } from '../types/login-response.type';
 import { catchError, map, Observable, tap, throwError } from 'rxjs';
 import { Router } from '@angular/router';
 
+export interface Usuario {
+  id: number;
+  nickname: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  apiUrl: string = "http://localhost:3000"
+  apiUrl: string = "http://localhost:8080"
 
   constructor(private router: Router, private httpClient: HttpClient) {}
-  
-  login(name: string, password: string): Observable<any>{
-    return this.httpClient.get<any[]>(this.apiUrl + "/users").pipe(
-      map((usuarios) => {
-        const usuario = usuarios.find(
-          (u) => u.name === name && u.password === password
-        );
-        if(!usuario){
-        throw new Error('Usuário ou senha inválidos');
-        }
-        return usuario;
-      }),
-      tap((usuario) => {
-        sessionStorage.setItem("token", usuario.id)
-        sessionStorage.setItem("username", usuario.name)
-        this.router.navigate(['/home'])
+  login(nickname: string, senha: string): Observable<any> {
+  return this.httpClient.post<any>(this.apiUrl + "/auth/login", {
+      nickname,
+      senha
+    }).pipe(
+      tap((resposta) => {
+        sessionStorage.setItem("token", resposta.token);
+        sessionStorage.setItem("usernickname", nickname);
+        this.router.navigate(['/home']);
       }),
       catchError((error) => {
+        return throwError(() => new Error(error.error || 'Usuário ou senha inválidos'));
+      })
+    );
+  }
+
+  cadastro(nickname: string, senha: string, tipo: string = "usuario"){
+    return this.httpClient.post<LoginResponse>(this.apiUrl + "/usuarios", {nickname, senha, tipo}).pipe(
+        tap((usuario) => {
+          sessionStorage.setItem("auth-token", usuario.token)
+          sessionStorage.setItem("nickame", usuario.nickname)
+        }),
+        catchError((error) => {
         return throwError(() => new Error(error.message));
       }),
     )
   }
 
-  cadastro(name: string, password: string){
-    return this.httpClient.post<LoginResponse>(this.apiUrl + "/users", {name, password}).pipe(
-        /*tap((usuario) => {
-          sessionStorage.setItem("auth-token", usuario.token)
-          sessionStorage.setItem("user-name", usuario.name)
-        })*/
-    )
+  buscarPorNickname(nickname: string): Observable<Usuario> {
+    return this.httpClient.get<Usuario>(`${this.apiUrl}/usuarios/nickname/${nickname}`);
   }
 
-  recuperacao(name: string, password: string){
-    return console.log('Recuperação de senha:', name + password)
-        /*tap((usuario) => {
-          sessionStorage.setItem("auth-token", usuario.token)
-          sessionStorage.setItem("user-name", usuario.name)
-        })*/
+  recuperacao(id: number, novaSenha: string): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/usuarios/recuperar-senha/${id}`, { senha: novaSenha });
   }
 
   logado(){

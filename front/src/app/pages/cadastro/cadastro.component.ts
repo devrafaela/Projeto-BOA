@@ -6,9 +6,10 @@ import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { catchError, throwError } from 'rxjs';
 
 interface CadastroForm {
-  name: FormControl,
+  nickname: FormControl,
   password: FormControl,
   passwordConfirm: FormControl
 }
@@ -25,20 +26,26 @@ export class CadastroComponent {
 
   constructor(private router: Router, private loginService: LoginService, private toastService: ToastrService){
     this.cadastroForm = new FormGroup({
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
+      nickname: new FormControl('', [Validators.required, Validators.minLength(3)]),
       password: new FormControl('', [Validators.required, Validators.minLength(4)]),
       passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(4)]),
     })
   }
 
   submit(){
-    this.loginService.cadastro(this.cadastroForm.value.name, this.cadastroForm.value.password).subscribe({
-    next: () => {this.toastService.success("Cadastro realizado com sucesso!"), this.router.navigate(["/login"])},
-      error: () => this.toastService.error("Erro ao cadastrar usuário! Tente novamente.")
-   
-
-
-    })
+    this.loginService.cadastro(this.cadastroForm.value.nickname, this.cadastroForm.value.password).subscribe({
+      next: () => {
+        this.toastService.success("Cadastro realizado com sucesso!");
+        this.router.navigate(["/login"]);
+      },
+      error: (erro) => {
+        let mensagem = "Erro ao cadastrar o usuário. Tente novamente!"
+        if (erro.status === 409) {
+          mensagem: "Já existe um usuário cadastrado com esse nickname.";
+        }
+        this.toastService.error(mensagem);
+      }
+    });
   }
 
   navigate(){

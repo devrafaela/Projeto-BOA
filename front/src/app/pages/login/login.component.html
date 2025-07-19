@@ -1,5 +1,5 @@
 <app-login-layout title="LOGIN" btnLoginText="Entrar" btnSairText="Voltar" (submit)="submit()" (navigate)="navigate()" [disableBtn]="!loginForm.valid">
-    <form [formGroup]="loginForm">
+    <form [formGroup]="loginForm" class="flex g-4 mb-8">
         <app-default-input
             inputName="name"
             type="text"
@@ -14,7 +14,7 @@
             formControlName="password"
         >
         </app-default-input>
-        <span class="press-start-2p-font "> <a href="/recuperacao" class="text-link">Esqueceu sua senha?</a></span>
-        <span class="press-start-2p-font">É novo(a) aqui? <a href="/cadastro" class="text-link"> Crie uma conta!</a></span>
+        <span class="press-start-2p-font sm:text-[50px] md:text-[80px]"> <a href="/recuperacao" class="text-link">Esqueceu sua senha?</a></span>
+        <span class="press-start-2p-font sm:text-[50px] md:text-[80px]">É novo(a) aqui? <a href="/cadastro" class="text-link"> Crie uma conta!</a></span>
     </form>
 </app-login-layout>

@@ -1,6 +1,13 @@
-<div class="input-wrapper">
+<div class="text-[#555555] text-base text-center flex justify-center items-center flex-col">
     <label [for]="inputName">{{ label }}</label>
-    <div class="input-content">
-        <input [type]="type" [placeholder]="placeholder" [value]="value" (input)="onInput($event)" class="press-start-2p-font"/>
+    <div class="rounded-lg mb-2">
+        <input 
+            [type]="type" 
+            [matTooltip]="placeholder" 
+            [placeholder]="placeholder" 
+            [value]="value" 
+            (input)="onInput($event)" 
+            class="h-[70px] w-[300px] sm:w-[350px] md:w-[430px] lg:w-[550px] border-2 border-white bg-[#A2c8e3] px-5 py-3 text-center flex justify-center items-center press-start-2p-font text-[12px] md:text-[15px]"
+        >
     </div>
 </div>

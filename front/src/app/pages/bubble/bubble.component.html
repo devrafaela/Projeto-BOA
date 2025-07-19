@@ -1,65 +1,81 @@
-  <div class="game-container">
-    <h1 class="title">Bubble Sort</h1>
-  
+  <div class="game-container size-full">
     <!-- Área principal do jogo -->
-    <div>
+    <div class="flex flex-col  justify-center size-full">
+      <h1 class="text-shadow-title mx-2 mb-2 mt-4 text-5xl sm:text-7xl relative press-start-2p-font text-[#e4ab0d] text-center">Bubble Sort</h1>
+      <!-- Exibição da quantidade de etapas -->
+       <div class="flex justify-center items-center mt-4 sm:mt-12">
+         <div class="inline-flex justify-center steps-box bg-[#f29f05] rounded-md px-16 py-2 my-1 mb-8">
+           <p class="text-white text-center press-start-2p-font">
+             {{ started ? 'Etapa Atual: Passo ' + currentStep + ' de ' + atualSteps : 'Bem-vindo ao Bubble' }}
+           </p>
+         </div>
+       </div>
       <!-- Exibição do array -->
-      <div class="array-section">
-        <div class="array-wrapper">
-          <span class="array-label">Array Inicial</span>
-          <div class="array">
-            <div class="array-box" *ngFor="let value of array; let i = index" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
-              <span class="value">{{ value }}</span>
-              <span class="position">Posição {{ i }}</span> <!-- ⬅️ posição aparece aqui -->
+      <div class="inline-flex flex-col sm:flex-row justify-center items-center mt-2 p-2">
+        <p class="text-shadow pr-4 mb-2">Array Inicial</p>     
+        <div *ngIf="started" class="flex justify-center gap-2 sm:gap-5 mb-1" >
+          <div *ngFor="let value of array; let i = index" class="flex flex-col items-center">
+            <div class="array-box bg-[#797979] rounded-[12px] w-[60px] h-[65px] flex justify-center items-center">
+                <span class="bold">{{ value }}</span>
             </div>
+            <span class="mt-1 text-[10px] text-shadow">Posição</span>
+            <span class="position text-[10px] mt-1 text-shadow">{{ i }}</span>
+          </div>
+        </div>
+        <div *ngIf="!started" class="flex justify-center gap-2 sm:gap-5 mb-1" >
+          <div *ngFor="let value of quantidadeBox; let i = index" class="flex flex-col items-center">
+            <div class="array-box bg-[#797979] rounded-[12px] w-[60px] h-[65px] flex justify-center items-center" [ngClass]="{ 'comparing': i === currentPair[0] || i === currentPair[1] }">
+            </div>
+            <span class="mt-1 text-[10px] text-shadow">Posição</span>
+            <span class="position text-[10px] mt-1 text-shadow">{{ i }}</span>
           </div>
         </div>
       </div>
   
       <!-- Comparação atual -->
-      <div class="comparison-section">
-        <p class="array-label">Comparando:</p>
-        <div class="comparison">
-          <div class="compare-box">{{ array[currentPair[0]] }}</div>
-          <div class="compare-icon">⇄</div>
-          <div class="compare-box">{{ array[currentPair[1]] }}</div>
+      <div class="flex justify-center items-center gap-6 mb-2 mt-8 mb-6">
+        <p class="text-shadow">Comparando:</p>
+        <div class="flex justify-center items-center gap-6">
+          <div *ngIf="started" class="compare-box bold">{{ array[currentPair[0]] }}</div>
+          <div *ngIf="!started" class="compare-box bold"></div>
+          <div class="flex justify-center items-center text-5xl text-[#914f00]">⇄</div>
+          <div *ngIf="started" class="compare-box bold">{{ array[currentPair[1]] }}</div>
+          <div *ngIf="!started" class="compare-box bold"></div>
         </div>
       </div>
   
       <!-- Pergunta e resposta -->
-      <div class="question-section" *ngIf="!isFinished">
-        <p class="question-index">
+      <div class="flex items-center flex-col" *ngIf="!isFinished">
+        <p class="text-shadow text-center text-[16px] max-w-[95%] sm:max-w-[80%] ">
           Qual número deve aparecer na posição {{ currentIndex }} neste passo?
         </p>
-        <div class="input-wrapper">
-          <input type="number" [(ngModel)]="userAnswer" class="answer-box" />
-          <button class="confirm-button" (click)="checkAnswer()">Confirmar</button>
+        <div>
+          <input [disabled]="!started" type="number" [(ngModel)]="userAnswer" class="answer-box rounded-[12px] w-[60px] h-[65px] bold text-center mx-4 my-2" />
+          <button [disabled]="!started" class="confirm-button bold" (click)="checkAnswer()">Confirmar</button>
         </div>
       </div>
-  
-      <!-- Botões de dica e reinício -->
-      <div class="action-buttons">
-        <button class="restart-button" (click)="restart()">Reiniciar</button>
-        <button class="hint-button" (click)="showHint()">Veja dica</button>
-      </div>
-  
-      <!-- Feedback visual -->
-      <div *ngIf="feedback" class="feedback-box" [ngClass]="feedback">
-        {{ feedback === 'correct' ? '✅ Correto!' : '❌ Errado!' }}
-      </div>
-  
-      <!-- Mensagem de vitória -->
-      <div *ngIf="isFinished" class="win-message">
-        🎉 Parabéns! Você ordenou o array corretamente!
-        <br />
-        <button class="restart-button" (click)="restart()">Reiniciar</button>
+       <!-- Feedback visual -->
+    <div class="min-h-[50px] flex justify-center items-center my-1">
+      <div *ngIf="feedback" class="text-[1.4rem] font-bold p-2 rounded-lg inline-block animate-fade-in transition-all duration-300 ease-out flex-center" [ngClass]="feedback">
+       {{ feedback === 'correct' ? '✅ Correto!' : '❌ Errado!' }}
       </div>
     </div>
-    <div class="cursor-pointer flex w-full justify-start mt-[32px]">
+      <!-- Botões de dica e reinício -->
+      <div class="flex justify-center gap-6 mt-2 sm:mt-4">
+        <button *ngIf="started" class="restart-button bold" (click)="restart()">Reiniciar</button>
+        <button *ngIf="!started" class="restart-button bold" (click)="iniciarGame()">Iniciar</button>
+        <button class="hint-button bold" matTooltip="Ver dica" (click)="showHint()">Dica</button>
+      </div>
+    </div>
+    <div class="cursor-pointer flex items-end justify-start md:mt-[32px] absolute top-4 left-4 md:bottom-4 md:left-4">
       <img 
       src="assets/svg/seta-esquerda.svg" 
       alt="Seta voltar para informação anterior"
+      class="w-10 sm:w-12 md:w-14 hover:scale-105 transition-transform"
       (click)="navigateHome()"
        />
     </div>
+     <button class="absolute top-4 right-4 w-10 h-10 p-0 flex items-center justify-center cursor-pointer hover:opacity-80" aria-label="Informações" (click) ="showExplication()">
+        <img src="assets/svg/tutorial.svg" alt="ícone de dúvida" />
+    </button>
   </div>
